@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/home_page.dart';
+import 'package:myapp/pages/infinite_scroll.dart';
 import 'package:myapp/pages/login_page.dart';
 import "package:google_fonts/google_fonts.dart";
+import 'package:myapp/pages/map_screen.dart';
 import 'package:myapp/utils/routes.dart';
+import 'package:myapp/widgets/Theme.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,20 +20,13 @@ class MyApp extends StatelessWidget {
       // home: HomePage(),
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
-      darkTheme: ThemeData(
-        brightness: Brightness.light,
-      ),
-      theme: ThemeData(
-          primarySwatch: Colors.deepPurple,
-          primaryTextTheme: GoogleFonts.latoTextTheme(),
-          fontFamily: GoogleFonts.lato().fontFamily
-          //
-          ),
+      darkTheme: MyTheme.darkTheme(context),
+      theme: MyTheme.lightTheme(context),
 
       routes: {
-        MyRoutes.InitialRoute: (context) => HomePage(),
-        MyRoutes.HomeRoute: (context) => HomePage(),
-        MyRoutes.LoginRoute: (context) => LoginPage()
+        MyRoutes.InitialRoute: (context) => InfiniteScrl(),
+        // MyRoutes.HomeRoute: (context) => HomePage(),
+        // MyRoutes.LoginRoute: (context) => LoginPage()
         //
       },
     );

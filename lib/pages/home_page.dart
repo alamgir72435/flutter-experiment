@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/models/catelog.dart';
 import 'package:myapp/utils/routes.dart';
 import 'package:myapp/widgets/Drawer.dart';
+import 'package:myapp/widgets/ItemWidget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,18 +13,15 @@ class HomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text('Home page'),
         ),
-        body: Center(
-          child: Column(
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, MyRoutes.LoginRoute);
-                },
-                child: Text('Go to Login'),
-              )
-            ],
-          ),
-        ),
+        // body: ListView.builder(
+        //   itemCount: CetalogModel.items.length,
+        //   itemBuilder: ((context, index) {
+        //     return ItemWidget(
+        //       key: index,
+        //       item: CetalogModel.items[index],
+        //     );
+        //   }),
+        // ),
         drawer: MyDrawer());
   }
 }
